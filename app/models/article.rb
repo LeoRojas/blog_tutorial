@@ -1,7 +1,11 @@
 class Article < ApplicationRecord
-  has_many :comments
+  has_many :comments, dependent: :destroy
   validates :title, presence: true, length: { minimum: 5 }
+  after_create :set_body
 
+  def set_body
+    self.text = "FIXED text"
+  end
   # def there_is_stock
   # end
 
