@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
+  get 'search/', to: 'articles#search'
+  get 'forms/form1', to: 'forms#form1'
   root 'welcome#index'
   # get 'signup', to: 'accounts#new', as: 'signup'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

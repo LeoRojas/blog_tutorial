@@ -1,0 +1,14 @@
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+<% if @articles %>
+  <% @articles.each do |article| %>
+    <div>
+      <span><%= article.title %></span>
+      <span><%= article.text %></span>
+      <span><%= link_to 'Show', article_path(article) %></span>
+    </div>
+  <% end %>
+<% end %>

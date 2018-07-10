@@ -1,6 +1,12 @@
 class ArticlesController < ApplicationController
 
-  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show, :search]
+
+  def search
+    unless params[:q].blank?
+      @articles = Article.where("title LIKE ?", "%#{params[:q]}%").or(Article.where("text LIKE ?", "%#{params[:q]}%"))
+    end
+  end
 
   def index
     @articles = Article.all
@@ -20,6 +26,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    # @article = Article.new(title: params["article"]["title"], text: params["article"]["text"])
    
     if @article.save
       redirect_to @article
