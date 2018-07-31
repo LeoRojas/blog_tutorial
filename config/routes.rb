@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   # get 'welcome/index'
   get 'welcome/index', to: 'welcome#index'
   get 'welcome/sum'
