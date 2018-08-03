@@ -23,13 +23,14 @@
  
   <div class="form-group">
     <%= form.label :text, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10" >
+    <div class="col-lg-10">
       <%= form.text_area :text, :class => 'form-control' %>
     </div>
   </div>
  
-  <p>
+  <div class="form-group">
     <%= form.submit(nil, :class => 'btn btn-primary', :id => 'submit-button') %>
-  </p>
- 
+    <%= link_to 'Cancel', articles_path , :class => "btn btn-default" %>
+  </div>
+
 <% end %>
