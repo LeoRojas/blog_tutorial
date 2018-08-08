@@ -1,6 +1,5 @@
 class ArticlesController < ApplicationController
-
-  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show, :search]
+  # http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show, :search]
 
   def search
     unless params[:q].blank?
