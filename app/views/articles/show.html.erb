@@ -7,6 +7,15 @@
   <dd><%= @article.title %></dd>
  <dt><strong>Text:</strong></dt>
   <dd><%= @article.text %></dd>
+  <dt><strong>Likes:</strong></dt>
+  <dd><%= @article.votes_for.size %></dd>
+  <dt><strong>Like actions:</strong></dt>
+  <% if current_user.voted_up_on? @article %>
+  
+    <dd><button onclick="alert('hello');"><%= fa_icon "thumbs-down 4x" %></button></dd>
+  <% else %>
+    <dd><button onclick="alert('hello');"><%= fa_icon "thumbs-up 4x" %></button></dd>
+  <% end %>
 </dl>
 
 <h4>Comments</h4>
