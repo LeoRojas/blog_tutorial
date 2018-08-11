@@ -3,6 +3,7 @@ class Article < ApplicationRecord
   validates :title, presence: true, length: { minimum: 5 }
   after_create :set_body
   paginates_per 5
+  acts_as_votable
 
   def set_body
     self.text = "FIXED text"
