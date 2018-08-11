@@ -2,6 +2,7 @@ class Article < ApplicationRecord
   has_many :comments, dependent: :destroy
   validates :title, presence: true, length: { minimum: 5 }
   after_create :set_body
+  paginates_per 5
 
   def set_body
     self.text = "FIXED text"

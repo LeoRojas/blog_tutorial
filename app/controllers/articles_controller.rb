@@ -8,7 +8,10 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all
+    # @articles = Article.all
+    #Article.order(:name)
+    page = params[:page] ? params[:page] : 1
+    @articles = Article.page(page)
   end
 
   def show
